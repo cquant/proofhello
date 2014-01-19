@@ -25,6 +25,17 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <title>Hello World</title>
+
+        <script>
+            // Create a global devLog feature.  When Enabled, all devLog entries will be sent to the console.log.
+            window.DEVDEBUG = true;
+            function devLog(a, b, c, d) {
+                if (DEVDEBUG) {
+                    console.log(a, b || '', c || '', d || '');
+                }
+            }
+            devLog('index.html Reporting DEVDEBUG('+DEVDEBUG+')');
+        </script>
     </head>
     <body>
         <div class="app">
@@ -39,6 +50,7 @@
             <ul>
                 <li class="thelinks"><a href="index.html">index.html</a></li>
                 <li class="thelinks"><a href="page01.html">page01.html</a></li>
+                <li class="thelinks"><a href="javascript:devLog('console link')">console</a></li>
                 <li class="thelinks"><a href="http://localhost/page01.html">http://localhost/page01.html</a></li>
                 <li class="thelinks"><a href="http://localhost/www/page01.html">http://localhost/www/page01.html</a></li>
                 <li class="thelinks"><a href="http://localhost/prooftestarea/www/page01.html">http://localhost/prooftestarea/www/page01.html</a></li>
@@ -48,7 +60,9 @@
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
+            devLog('index.html Pre app.initialize()');
             app.initialize();
+            devLog('index.html Post app.initialize()');
         </script>
     </body>
 </html>
